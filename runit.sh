@@ -18,6 +18,7 @@ export CDE_JOB_URL="https://4spcd2c8.cde-ntvvr5hx.go01-dem.ylcu-atmi.cloudera.si
 # \"resourceName\": \"jvpBMS\" } ], \"spark\": { \"file\": \"isIcebergTable.py\", \"conf\": { \"spark.pyspark.python\": \"python3\" } }, \
 # \"schedule\": { \"enabled\": true, \"user\": \"jprosser\", \"cronExpression\": \"30 */1 * * *\", \"start\": \"2024-11-24\", \"end\": \"2024-11-24\" } }"
 
-curl -v  -X POST  -H "Authorization: Bearer ${CDE_TOKEN}"  -H "Content-Type: application/json"  -H "Accept: */*"  -d "{ \"requestID\": \"345\"}" "${CDE_JOB_URL}/jobs/jvp-testiceberg/run?argv1=ML_Train;argv2=cc_lead_train"
+#leave requestID empty to just generate another job instance
+curl -v  -X POST  -H "Authorization: Bearer ${CDE_TOKEN}"  -H "Content-Type: application/json"  -H "Accept: */*"  -d "{ \"requestID\": \"\"}" "${CDE_JOB_URL}/jobs/jvp-testiceberg/run?argv1=ML_Train;argv2=cc_lead_train"
 
 
