@@ -19,7 +19,7 @@ def is_iceberg_table(spark, dbname, table_name):
 
         # Check if 'format' property exists and is set to 'iceberg'
         for row in properties:
-            if row['key'] == 'format' and row['value'].startswith("iceberg"):
+            if row['key'] == 'format' and row['value'].contains("iceberg"):
 		return True
 
             # If 'format' property is not found or not set to 'iceberg'
@@ -42,7 +42,7 @@ if __name__ == '__main__':
     table_name=sys.argv[2]
     USER_PREFIX="JVP"
 #    data_lake_name=
-#         .config("spark.yarn.access.hadoopFileSystems", data_lake_name)
+#         .config("spark.yarn.access.hadoopFileSystems", data_lake_name,<OTHER S3 LOCATIONS>)
 
     spark = (
 	SparkSession.builder.appName(f"{USER_PREFIX}_CCLead-Data-Loader")
